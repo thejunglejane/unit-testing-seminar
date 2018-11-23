@@ -71,4 +71,3 @@ pip install -r requirements.txt
 
 Either of these will install all of the dependencies for you. Now, you can
 launch Jupyter and run all the notebooks.
-

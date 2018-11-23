@@ -2,8 +2,8 @@
 
 ## Overview
 
-This seminar teaches the basics of unit testing and describes the role that unit
-testing plays in reproducible research.
+This seminar teaches the basics of unit testing and how to use unit testing for
+reproducible research.
 
 ### Seminar Topic
 
@@ -43,7 +43,7 @@ First, create a fork of this repository on GitHub
 [here](https://github.com/thejunglejane/unit-testing-seminar/fork) and then
 clone your fork locally with:
 
-```
+```bash
 git clone git@github.com:{username}/unit-testing-seminar.git
 ```
 
@@ -55,15 +55,18 @@ required dependencies into it.
 If you have [`pipenv`](https://pipenv.readthedocs.io/en/latest/) installed, you
 can run:
 
-```
-bash cd unit-testing-seminar pipenv install pipenv shell
+```bash
+cd unit-testing-seminar
+pipenv install
+pipenv shell
 ```
 
 If you don't have `pipenv`, you can install the dependencies into any other
 virtualenv by running:
 
-```
-bash cd unit-testing-seminar pip install -r requirements.txt
+```bash
+cd unit-testing-seminar
+pip install -r requirements.txt
 ```
 
 Either of these will install all of the dependencies for you. Now, you can

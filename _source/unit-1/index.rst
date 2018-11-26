@@ -15,4 +15,3 @@ included in this unit.
 
    lesson-0
    lesson-1
-   lesson-2

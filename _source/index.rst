@@ -47,16 +47,6 @@ The seminar is intended for researchers and scientists, and it assumes
 that most of your code is developed in Jupyter notebooks. If that’s not
 you, feel free to skip the lesson on testing Jupyter notebooks.
 
-What’s Inside
--------------
-
-The seminar is divided into four units, each of which contains several
-lessons. Each lesson contains the following:
-
-1. Written lecture
-2. Jupyter notebook containing examples
-3. Practice exercises
-
 How to use this repository
 --------------------------
 
@@ -67,9 +57,9 @@ your fork locally with:
 
    git clone git@github.com:{username}/unit-testing-seminar.git
 
-To run the Jupyter notebooks and examples included in this seminar, you
-need ``python3.7`` and ``jupyter``. Create a `virtual environment`_ and
-install the required dependencies into it.
+To build the docs and run the examples included in this seminar, you
+need ``python3.7`` and you need to install a few dependencies. Create a
+`virtual environment`_ and install the required dependencies into it.
 
 If you have `pipenv`_ installed, you can run:
 
@@ -88,7 +78,7 @@ other `virtual environment`_ by running:
    pip install -r requirements.txt
 
 Either of these will install all of the dependencies for you. Now, you
-can launch Jupyter and run all the notebooks.
+can build the docs locally and run the examples.
 
 .. _here: https://github.com/thejunglejane/unit-testing-seminar/fork
 .. _virtual environment: https://docs.python.org/3/tutorial/venv.html

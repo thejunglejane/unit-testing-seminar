@@ -9,11 +9,12 @@ Unit Test Example
 
 .. note::
    All of the examples in this repository use Python’s built-in
-   ```unittest```_ library. This is not the only library that you can
-   use to write unit tests in Python. I prefer ``unittest`` to other libraries and frameworks for a couple of reasons, but it’s less
+   `unittest`_ library. This is not the only library that you can
+   use to write unit tests in Python. I prefer ``unittest`` to other
+   libraries and frameworks for a couple of reasons, but it’s less
    important which library or framework you use *as long as you’re
-   writing tests*. If you want to use ```pytest```_ instead of
-   ``unittest`` you have my blessing!
+   writing tests*. If you want to use `pytest`_ instead of ``unittest``
+   you have my blessing!
 
 Below is a test case with four test methods: ``test_is_even``,
 ``test_is_odd``, ``test_is_composite``, and ``test_is_prime``. Each of
@@ -21,7 +22,7 @@ these test methods is a unit test. We know this because, in
 ``unittest``, any method on a ``TestCase`` class whose name begins with
 ``test_`` is considered a test.
 
-.. literalinclude:: examples/test_numbers.py
+.. literalinclude:: examples/test_numbs.py
 
 Anatomy of a Unit Test
 ----------------------
@@ -63,25 +64,25 @@ Let's run our tests and look at the results:
 
 .. code::
 
-   python test_numbers.py
+   $ python test_numbs.py
    E..E
    ======================================================================
-   ERROR: test_is_composite (__main__.NumbersTestCase)
+   ERROR: test_is_composite (__main__.NumbsTestCase)
    ----------------------------------------------------------------------
    Traceback (most recent call last):
-     File "examples/test_numbers.py", line 16, in test_is_composite
-       self.assertFalse(numbers.is_composite(3))
-     File "unit-0/examples/numbers.py", line 20, in is_composite
+     File "examples/test_numbs.py", line 16, in test_is_composite
+       self.assertFalse(numbs.is_composite(3))
+     File "unit-0/examples/numbs.py", line 20, in is_composite
        if n % i != 0:
    ZeroDivisionError: integer division or modulo by zero
 
    ======================================================================
-   ERROR: test_is_prime (__main__.NumbersTestCase)
+   ERROR: test_is_prime (__main__.NumbsTestCase)
    ----------------------------------------------------------------------
    Traceback (most recent call last):
-     File "examples/test_numbers.py", line 20, in test_is_prime
-       self.assertTrue(numbers.is_prime(3))
-     File "unit-0/examples/numbers.py", line 28, in is_prime
+     File "examples/test_numbs.py", line 20, in test_is_prime
+       self.assertTrue(numbs.is_prime(3))
+     File "unit-0/examples/numbs.py", line 28, in is_prime
        if n % i == 0:
    ZeroDivisionError: integer division or modulo by zero
 
@@ -90,6 +91,31 @@ Let's run our tests and look at the results:
 
    FAILED (errors=2)
 
-So what happened?
+So what happened? We can see that we ran four tests, two of which
+errored and two of which passed. We know this because on the first line
+we see two "E"s (these are the errors) and two "."s (these are the
+passes). For each error, we also see a traceback, and from these we can
+tell that ``is_composite`` and ``is_prime`` each encountered a
+``ZeroDivisonError`` exception. Looks like we have some code to fix!
 
+.. literalinclude:: examples/numbs.py
+   :lines: 15-34
+   :emphasize-lines: 5-7,15-17
+
+Let's run our tests again and see if we fixed the ``ZeroDivisionError``
+issue:
+
+.. code::
+
+   $ python test_numbs.py
+   ....
+   ----------------------------------------------------------------------
+   Ran 4 tests in 0.000s
+
+   OK
+
+All four of our tests ran successfully and all of them passed.
+
+.. _unittest: https://docs.python.org/3/library/unittest.html
+.. _pytest: https://pytest.org
 .. _here: https://docs.python.org/3/library/unittest.html#test-cases

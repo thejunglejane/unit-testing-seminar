@@ -10,4 +10,3 @@ test), and what to do with hard-to-test code.
 
    lesson-0
    lesson-1
-   lesson-2

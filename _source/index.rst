@@ -13,6 +13,7 @@ Unit Testing for Reproducible Science
    unit-0/index
    unit-1/index
    unit-2/index
+   unit-3/index
 
 Overview
 --------

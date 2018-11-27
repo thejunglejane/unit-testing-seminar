@@ -8,7 +8,6 @@ Unit Testing Libraries
 
 As we mentioned in Unit 0, there are several different unit testing
 libraries and frameworks for Python. To name a few:
-
 * :mod:`unittest`
 * `pytest`_
 * `marbles`_
@@ -51,10 +50,15 @@ Testing Jupyter Notebooks
 
 To be perfectly honest, if you want to test your code, you should get
 it out of a Jupyter notebook and into a package that you then import
-into your Jupyter notebooks when you need it.
+into your Jupyter notebooks when you need it. The reason for this is
+that we want our tests to be isolated from one another and we want them
+to be reproducible, and this is difficult in Jupyter notebooks where
+it's easy to get your notebook into a weird state by running cells out
+of order, deleting cells without deleting the objects defining those
+cells, etc.
 
-But, that takes time, and we can make some progress toward testing our
-notebooks, even if it's not perfect.
+But, refactoring notebooks into packages takes time, and we can make
+some progress toward testing our notebooks, even if it's not perfect.
 
 Executing Your Notebooks
 ~~~~~~~~~~~~~~~~~~~~~~~~
@@ -99,8 +103,18 @@ can then execute your tests in the following cell with:
       your tests, which you don't want it to do because we want our
       kernel to keep running after we've run our tests.
 
-``nbval``
-~~~~~~~~~
+You have to be diligent about cleaning up after yourself in between each
+test run. In Jupyter, the results of all evaluations are stored in
+global variables unless they're explicitly deleted. This means that even
+if you delete or rename a test, the old test will still be found unless
+you explicitly delete it with the ``del`` command.
+
+If possible, you can restart your notebook in between test runs. If this
+won't work for you, I recommend looking at how `ipytest`_ cleans up in
+between tests `here <clean_tests>`__. We'll cover `ipytest`_ below.
+
+nbval
+~~~~~
 
 `nbval`_ is a `pytest`_ plugin that validates Jupyter notebooks by
 executing every cell that contains code and compares the output with
@@ -110,6 +124,20 @@ saved notebook as the test criteria.
 This can be a good way of ensuring that your notebook is doing what it
 was doing last week, but it won't work well if your notebook's outputs
 are stochastic.
+
+ipytest
+~~~~~~~
+
+Finally, there's `ipytest`_. `ipytest`_ allows you to run `pytest`_ unit
+tests inside Jupyter notebooks.
+
+`ipytest`_ provides a way of cleaning up tests that may be lingering
+around in your global state. See `clean tests`_ for more information on
+how this works and how you should use it.
+
+.. note::
+   `ipytest`_ used to support :mod:`unittest` tests but has deprecated
+   support for :mod:`unittest`.
 
 Testing Packages
 ----------------
@@ -265,3 +293,6 @@ write.
 .. _nose: https://nose.readthedocs.io/en/latest/
 .. _here: https://blog.thedataincubator.com/2016/06/testing-jupyter-notebooks/
 .. _nbval: https://nbval.readthedocs.io/en/latest/
+.. _ipytest: https://github.com/chmp/ipytest
+.. _clean tests: https://github.com/chmp/ipytest#ipytestclean_tests
+.. _clean_tests: https://github.com/chmp/ipytest/blob/master/ipytest/_util.py

@@ -8,6 +8,7 @@ Unit Testing Libraries
 
 As we mentioned in Unit 0, there are several different unit testing
 libraries and frameworks for Python. To name a few:
+
 * :mod:`unittest`
 * `pytest`_
 * `marbles`_
@@ -30,10 +31,12 @@ In the interest of full transparency, I am the co -creator and
 framework to provide more information-rich failure messages, and writing
 `marbles`_ tests is basically the same as writing :mod:`unittest` tests.
 
-`nose`_ is no longer being maintained and you shouldn't use it. I
-included it in this list because you might come across it at some point,
-and it's useful to know about it. My first unit tests were written in
-nose primarily becase tests are very easy to write in nose.
+.. warning::
+   `nose`_ is no longer being maintained and you shouldn't use it. I
+   included it in this list because you might come across it at some
+   point, and it's useful to know about it. My first unit tests were
+   written in nose primarily becase tests are very easy to write in
+   nose.
 
 :mod:`doctest` isn't really a unit testing library, but it's worth
 knowing about. :mod:`doctest` looks for pieces of text that look like

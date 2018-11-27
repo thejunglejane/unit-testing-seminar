@@ -8,6 +8,8 @@ verify_ssl = true
 [packages]
 jupyter = "*"
 coverage = "*"
+ipytest = "*"
+sphinx = "*"
 
 [requires]
 python_version = "3.7"

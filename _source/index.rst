@@ -64,20 +64,28 @@ If you have `pipenv`_ installed, you can run:
 
 .. code:: bash
 
-   cd unit-testing-seminar
-   pipenv install
-   pipenv shell
+   $ cd unit-testing-seminar
+   $ pipenv install
+   $ pipenv shell
 
 If you don’t have `pipenv`_, you can install the dependencies into any
 other `virtual environment`_ by running:
 
 .. code:: bash
 
-   cd unit-testing-seminar
-   pip install -r requirements.txt
+   $ cd unit-testing-seminar
+   $ pip install -r requirements.txt
 
 Either of these will install all of the dependencies for you. Now, you
 can build the docs locally and run the examples.
+
+.. code:: bash
+
+   $ sphinx-build -b html _source _build
+   $ (cd _build; python -m http.server 8000)
+
+Now you can navigate to localhost:8000 in your browser and see the
+built doctumentation.
 
 .. _here: https://github.com/thejunglejane/unit-testing-seminar/fork
 .. _virtual environment: https://docs.python.org/3/tutorial/venv.html
